@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 const logo = document.querySelector('.logo a');
+const navLinks = document.querySelector('.nav-links');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
@@ -120,6 +121,11 @@ window.addEventListener('scroll', () => {
         logo.style.opacity = '1';
     }
     
+    // Mobil navbar kontrolü
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+    }
     lastScroll = currentScroll;
 });
 
@@ -208,4 +214,4 @@ document.querySelectorAll('.input-group input, .input-group textarea').forEach(i
             this.classList.remove('has-value');
         }
     });
-}); 
+});
