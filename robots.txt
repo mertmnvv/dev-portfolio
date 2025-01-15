@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mertmanav.com.tr/sitemap.xml 
