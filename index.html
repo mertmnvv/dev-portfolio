@@ -14,19 +14,61 @@
     <title>Mert Manav | Full Stack Developer</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("XVYDzcINnL1OdA2h-"); // Yeni Public Key
+        })();
+    </script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
-                <a href="#home" style="text-decoration: none; color: inherit;">MM</a>
+                <a href="#home">
+                    <span>MM</span>
+                </a>
             </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#about-goals">Hakkımda & Hedefler</a></li> 
-                <li><a href="#experience">Deneyimler</a></li>
-                <li><a href="#education">Eğitim</a></li>
-                <li><a href="#skills">Yetenekler</a></li>
+                <li>
+                    <a href="#home" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Ana Sayfa</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about-goals" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>Hakkımda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#experience" class="nav-link">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Deneyimler</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#education" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Eğitim</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Yetenekler</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>İletişim</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -50,6 +92,12 @@
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
+                <div class="workplace-link">
+                    <a href="https://cafeblanco.com.tr/" target="_blank" title="Blanco Coffee & More">
+                        <i class="fas fa-coffee"></i>
+                        <span>Blanco Coffee & More</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -57,30 +105,57 @@
     <section id="about-goals" class="section">
         <div class="container">
             <h2>Hakkımda & Hedefler</h2>
-            <div class="about-slider">
-                <button class="about-slider-btn prev-about-btn"><i class="fas fa-chevron-left"></i></button>
-                <div class="about-slider-container">
-                    <div class="about-slide">
-                        <h3>Hakkımda</h3>
-                        <div class="about-content">
-                            <div class="about-text">
-                                <p>Dört yıldır profesyonel barista olarak çalışmaktayım. Bu süre zarfında müşteri memnuniyetini yüksek düzeyde tutarak kahve ve içecek hazırlama konusunda uzmanlaştım. Aynı zamanda, yazılım alanında kendimi geliştirmek için çeşitli kurslara katıldım.</p>
-                                <p>Farklı sektörlerde çeşitli roller üstlenerek yedi yıldır kurumsal firmalarda çalıştım. Bu süreçte, edindiğim deneyimler sayesinde disiplin ve problem çözme becerilerimi geliştirdim.</p>
+            <div class="about-goals-container">
+                <!-- Hakkımda Kartı -->
+                <div class="about-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="front-content">
+                                <div class="icon-circle">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3>Hakkımda</h3>
+                                <p class="preview-text">Profesyonel Deneyimlerim</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="about-slide">
-                        <h3>Hedeflerim</h3>
-                        <div class="goals-content">
-                            <div class="goals-text">
-                                <p>C# ve .NET Core konularında deneyim kazanıyor ve eğitim alıyorum. Bu süreçte kendimi sürekli geliştirmekteyim. Yazılım sektöründe ileri seviyelere ulaşmayı ve hayalini kurduğum pozisyonlara erişmeyi hedefliyorum.</p>
-                                <p>Full Stack Developer olarak çalışarak oyun, uygulama ve web geliştirme alanlarında profesyonel bir kariyer inşa etmek istiyorum. Bu alanlarda derin bilgi birikimine sahip olarak yenilikçi projeler geliştirmek ve sektördeki en iyi uzmanlardan biri olmak hedeflerim arasında.</p>
-                                <p>Amacım, teknolojik gelişmeleri yakından takip ederek sürekli öğrenmek ve kendimi geliştirmek. Yenilikçi çözümler üreterek bireysel ve ekip çalışmalarıyla projelere değer katmak istiyorum. Uzun vadede, bilgi ve deneyimlerimi paylaşarak genç yazılım geliştiricilere ilham vermek ve alanımda bir lider konumuna ulaşmak istiyorum.</p>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <div class="about-info">
+                                    <p>Dört yıldır sektörde profesyonel barista olarak çalışıyorum. Bu süre zarfında yüksek müşteri memnuniyetini korudum ve kahve ve içecek hazırlama konusunda uzmanlaştım. Aynı zamanda, yazılım alanında kendimi geliştirmek için çeşitli kurslara katıldım.</p>
+                                    <p>Yedi yıldır farklı sektörlerde çeşitli rollerde çalıştım ve kurumsal firmalarda görev aldım. Bu süreçte edindiğim deneyimlerle disiplin ve problem çözme becerilerimi geliştirdim. Kariyerimi yazılım alanında ilerleterek yenilikçi projelerde yer alıp sektörde fark yaratmayı hedefliyorum.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="about-slider-btn next-about-btn"><i class="fas fa-chevron-right"></i></button>
+
+                <!-- Hedefler Kartı yerine Amaçlarım Kartı -->
+                <div class="about-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="front-content">
+                                <div class="icon-circle">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Amaçlarım</h3>
+                                <p class="preview-text">Yazılım Yolculuğum</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <div class="about-text">
+                                    <p>C# ve .NET Core konularında deneyim kazanıyor ve eğitim alıyorum. Bu süreçte kendimi sürekli geliştirmeye devam ediyorum. Aynı zamanda robotik kodlama ve web tasarımıyla da ilgileniyorum.</p>
+                                    
+                                    <p>Yazılım sektöründe ileri düzeylere ulaşmayı ve hayalini kurduğum pozisyonlara erişmeyi hedefliyorum. Full stack developer olarak çalışarak, oyun, uygulama, web geliştirme ve robotik kodlama alanlarında profesyonel bir kariyer inşa etmek istiyorum.</p>
+                                    
+                                    <p>Bu alanlarda derin bilgi birikimine sahip olup yenilikçi projeler geliştirmeyi ve sektördeki en iyi uzmanlardan biri olmayı amaçlıyorum. Teknolojik gelişmeleri yakından takip ederek sürekli öğrenmeyi ve kendimi geliştirmeyi hedefliyorum.</p>
+                                    
+                                    <p>Yenilikçi çözümler üreterek, hem bireysel olarak hem de ekip çalışmalarıyla projelere değer katmak istiyorum. Uzun vadede, bilgi ve deneyimlerimi paylaşabileceğim, genç yazılımcılara ilham verebileceğim ve alanımda lider konumda olabileceğim bir noktaya ulaşmayı amaçlıyorum.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -90,39 +165,21 @@
             <h2>Deneyimler</h2>
             <div class="experience-container">
                 <div class="timeline">
+                    <!-- Blanco Coffee -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">2018</div>
+                        <div class="timeline-date">2024 - Devam Ediyor</div>
                         <div class="timeline-content">
-                            <h3>Ozan Asansörr</h3>
-                            <h4>Operatör Stajyeri</h4>
-                            <p>Asansör operatörü stajyeri olarak çalışarak teknik ve operasyonel süreçlerde deneyim kazandım. Bakım ve onarım süreçlerinde ekip çalışması yaparak pratik beceriler edindim.</p>
+                            <h3>Blanco Coffee & More</h3>
+                            <h4>Yönetici</h4>
+                            <p>Yönetici olarak çalışarak, ekip yönetimi ve operasyon süreçlerini yönetmekteyim. Müşteri memnuniyetini artırmak için stratejiler geliştirerek satış hedeflerine ulaşmada başarılı sonuçlar elde etmekteyim.</p>
                         </div>
                     </div>
 
+                    <!-- Coffy -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">2019</div>
-                        <div class="timeline-content">
-                            <h3>Holiday Inn</h3>
-                            <h4>Teknik Destek Stajyeri</h4>
-                            <p>Teknik destek stajyeri olarak bilgisayar donanımı ve yazılımı konularında destek sağladım. Otel misafirlerinin teknik sorunlarına çözümler üreterek müşteri memnuniyetine katkıda bulundum.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2020</div>
-                        <div class="timeline-content">
-                            <h3>KODGE Software</h3>
-                            <h4>SQL Developer Stajyer</h4>
-                            <p>Stajyer olarak SQL geliştirme süreçlerine katkıda bulundum. Veritabanı yönetimi ve optimizasyonu konularında deneyim kazandım. Yazılım geliştirme süreçlerinde ekip çalışması tecrübesi edindim.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2023</div>
+                        <div class="timeline-date">2023-2024</div>
                         <div class="timeline-content">
                             <h3>Coffy</h3>
                             <h4>Barista</h4>
@@ -130,15 +187,67 @@
                         </div>
                     </div>
 
+                    <!-- Caffè Nero -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">2023 - Devam Ediyor</div>
+                        <div class="timeline-date">2022-2024</div>
                         <div class="timeline-content">
-                            <h3>Blanco Coffee & More</h3>
-                            <h4>Yönetici</h4>
-                            <p>Yönetici olarak çalışarak, ekip yönetimi ve operasyon süreçlerini yönetmekteyim. Müşteri memnuniyetini artırmak için stratejiler geliştirerek satış hedeflerine ulaşmada başarılı sonuçlar elde etmekteyim.</p>
+                            <h3>Caffè Nero</h3>
+                            <h4>Vardiya Müdürü</h4>
+                            <p>• Vardiya operasyonlarını ve ekip yönetimini başarıyla yürüttüm<br>
+                            • Günlük satış hedeflerini belirleyip takibini gerçekleştirdim<br>
+                            • Müşteri memnuniyetini en üst düzeyde tutarak şikayetleri çözümledim<br>
+                            • Personel eğitimi ve motivasyonunu sağladım<br>
+                            • Stok ve maliyet kontrolü yaptım</p>
                         </div>
                     </div>
+
+                    <!-- KODGE Software -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2020</div>
+                        <div class="timeline-content">
+                            <h3>KODEG YAZILIM</h3>
+                            <h4>SQL Developer Stajyer</h4>
+                            <p>• Veritabanı yönetimi ve optimizasyonu konularında deneyim kazandım<br>
+                            • SQL sorgularının performans iyileştirmelerini gerçekleştirdim<br>
+                            • Stored Procedure ve Function geliştirme süreçlerinde yer aldım<br>
+                            • Veri analizi ve raporlama çalışmaları yaptım<br>
+                            • Ekip çalışması ile projelerde aktif rol aldım</p>
+                        </div>
+                    </div>
+
+                    <!-- Holiday Inn -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2019</div>
+                        <div class="timeline-content">
+                            <h3>Holiday Inn Kadıköy</h3>
+                            <h4>Teknik Destek Stajyeri</h4>
+                            <p>• Otel misafirlerinin teknik sorunlarına hızlı çözümler ürettim<br>
+                            • Bilgisayar donanım ve yazılım sorunlarını giderdim<br>
+                            • Network sorunlarını çözdüm ve sistem bakımlarını gerçekleştirdim<br>
+                            • Misafir odalarındaki teknik ekipmanların kontrolünü sağladım<br>
+                            • Otel personeline teknik destek verdim</p>
+                        </div>
+                    </div>
+
+                    <!-- Ozan Asansör -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018</div>
+                        <div class="timeline-content">
+                            <h3>Ozan Asansör</h3>
+                            <h4>Operatör Stajyeri</h4>
+                            <p>• Asansör bakım ve onarım süreçlerinde aktif görev aldım<br>
+                            • Teknik ekiple birlikte arıza tespiti ve çözümü konularında çalıştım<br>
+                            • Periyodik bakım planlamalarına katıldım<br>
+                            • Güvenlik kontrollerini gerçekleştirdim<br>
+                            • Teknik dokümantasyon ve raporlama yaptım</p>
+                        </div>
+                    </div>
+
+                    <!-- Diğer deneyimler aynı formatta devam edecek -->
                 </div>
             </div>
         </div>
@@ -173,10 +282,198 @@
     <section id="skills" class="section">
         <div class="container">
             <h2>Yetenekler</h2>
-            <div class="skills-slider">
-                <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <div class="skills-container" id="skills-container"></div>
-                <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Programlama Dilleri</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span class="skill-name">C#</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">JavaScript</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">SQL</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Web Teknolojileri</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span class="skill-name">HTML5</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">CSS3</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">.NET Core</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h3>Arduino & Robotik</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span class="skill-name">Arduino</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Robotik Kodlama</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Sensör Programlama</span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>İletişim</h2>
+            <div class="contact-container">
+                <!-- Sol taraf - İletişim Bilgileri -->
+                <div class="contact-info-container">
+                    <div class="contact-card">
+                        <div class="contact-card-inner">
+                            <div class="contact-header">
+                                <i class="fas fa-paper-plane"></i>
+                                <h3>Bana Ulaşın</h3>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope-open"></i>
+                                    <a href="mailto:mertmnv3@gmail.com">mertmnv3@gmail.com</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>İstanbul, Türkiye</span>
+                                </div>
+                            </div>
+                            <div class="social-contact">
+                                <a href="https://github.com/mertmnvv" target="_blank" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/mert-manav" target="_blank" class="social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://instagram.com/mertmnvv" target="_blank" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ taraf - İletişim Formu -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form" onsubmit="sendEmail(event)">
+                        <div class="form-header">
+                            <div class="form-icon">
+                                <i class="fas fa-envelope-open-text"></i>
+                            </div>
+                            <h3>Mesaj Gönderin</h3>
+                            <p>Size en kısa sürede dönüş yapacağım.</p>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" id="name" name="from_name" required placeholder=" ">
+                                <label for="name">Ad Soyad</label>
+                                <i class="fas fa-user"></i>
+                                <div class="input-status">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="email" id="email" name="reply_to" required placeholder=" ">
+                                <label for="email">E-posta</label>
+                                <i class="fas fa-envelope"></i>
+                                <div class="input-status">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <textarea id="message" name="message" required placeholder=" "></textarea>
+                                <label for="message">Mesajınız</label>
+                                <i class="fas fa-comment-alt"></i>
+                                <div class="input-status">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Gönder</span>
+                            <div class="btn-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="btn-loading">
+                                <i class="fas fa-circle-notch fa-spin"></i>
+                            </div>
+                        </button>
+                    </form>
+                    <div class="form-notification">
+                        <div class="notification-content">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Mesajınız Gönderildi!</h3>
+                            <p>En kısa sürede size dönüş yapacağım.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
