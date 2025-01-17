@@ -459,6 +459,7 @@ footer {
     border-radius: 4px;
     transition: width 1s ease;
     position: relative;
+    width: 100%;
 }
 
 .skill-progress::after {

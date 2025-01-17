@@ -1,217 +1,276 @@
-const skillsData = {
-    "skills": [
-        {
-            "name": "HTML",
-            "icon": "fab fa-html5",
-            "description": "HTML, web sayfalarının iskeletini oluşturmak için kullanılan bir işaretleme dilidir.",
-            "color": "#ff5733"
-        },
-        {
-            "name": "CSS",
-            "icon": "fab fa-css3-alt",
-            "description": "CSS, web sayfalarının tasarımı ve düzenini belirlemek için kullanılır.",
-            "color": "#2980b9"
-        },
-        {
-            "name": "JavaScript",
-            "icon": "fab fa-js-square",
-            "description": "JavaScript, web sayfalarına interaktivite ve dinamik özellikler kazandırmak için kullanılan bir programlama dilidir.",
-            "color": "#f4c430"
-        },
-        {
-            "name": "Python",
-            "icon": "fab fa-python",
-            "description": "Python, veri analitiği, yapay zeka ve genel amaçlı programlama için yaygın olarak kullanılan bir programlama dilidir.",
-            "color": "#4B8BBE"
-        },
-        {
-            "name": "C#",
-            "icon": "fas fa-code",
-            "description": "C#, oyun geliştirme, masaüstü ve web uygulamaları için kullanılan güçlü bir programlama dilidir.",
-            "color": "#68217A"
-        },
-        {
-            "name": "Arduino",
-            "icon": "fas fa-microchip",
-            "description": "Arduino ile elektronik projeler geliştirme ve gömülü sistemler programlama konusunda deneyim sahibiyim.",
-            "color": "#00979D"
-        }
-        // Diğer yetenekler buraya eklenebilir
-    ]
-};
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const overlay = document.querySelector('.overlay');
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Diğer DOMContentLoaded işlemleri devam edebilir
-    
-    // Skills container kontrolünü kaldır
-    // const skillsContainer = document.getElementById('skills-container');
-    // if (skillsContainer) {
-    //     createSkillCards();
-    // }
+// MM butonu tıklama olayı
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
 });
 
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+// Overlay'e tıklandığında menüyü kapat
+overlay.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+// Menü linklerine tıklandığında menüyü kapat
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
     });
 });
 
-// About & Goals Slider functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const aboutContainer = document.querySelector('.about-slider-container');
-    const prevAboutBtn = document.querySelector('.prev-about-btn');
-    const nextAboutBtn = document.querySelector('.next-about-btn');
-    
-    if (aboutContainer && prevAboutBtn && nextAboutBtn) {
-        const slideWidth = aboutContainer.clientWidth;
-        
-        prevAboutBtn.addEventListener('click', () => {
-            aboutContainer.scrollLeft -= slideWidth;
-        });
-        
-        nextAboutBtn.addEventListener('click', () => {
-            aboutContainer.scrollLeft += slideWidth;
-        });
+// Sayfa dışına tıklandığında menüyü kapat
+document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && 
+        !navToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
     }
 });
 
-// Experience Slider functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const expContainer = document.querySelector('.experience-container');
-    const prevExpBtn = document.querySelector('.prev-exp-btn');
-    const nextExpBtn = document.querySelector('.next-exp-btn');
-    
-    if (expContainer && prevExpBtn && nextExpBtn) {
-        const timeline = expContainer.querySelector('.timeline');
-        const timelineItems = timeline.querySelectorAll('.timeline-item');
-        const itemWidth = timelineItems[0].offsetWidth + 40; // 40 is gap
-        
-        let currentPosition = 0;
-        const maxScroll = (timelineItems.length - 1) * itemWidth;
-        
-        prevExpBtn.addEventListener('click', () => {
-            currentPosition = Math.max(currentPosition - itemWidth, 0);
-            timeline.style.transform = `translateX(-${currentPosition}px)`;
-        });
-        
-        nextExpBtn.addEventListener('click', () => {
-            currentPosition = Math.min(currentPosition + itemWidth, maxScroll);
-            timeline.style.transform = `translateX(-${currentPosition}px)`;
-        });
-    }
-});
+// Metin animasyonu
+function setupTextAnimation() {
+    const firstText = document.querySelector('.first');
+    const secondText = document.querySelector('.second');
+    let showingFirst = true;
 
-// Navbar scroll behavior
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
-const logo = document.querySelector('.logo a');
-const navLinks = document.querySelector('.nav-links');
+    // İlk metni göster
+    firstText.classList.add('active');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    // Logo kontrolü
-    if (currentScroll > 100) {
-        logo.style.opacity = '0';
-    } else {
-        logo.style.opacity = '1';
-    }
-    
-    // Mobil navbar kontrolü
-    function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('show');
-    }
-    lastScroll = currentScroll;
-});
-
-// Mobil menü kontrolü
-document.addEventListener('DOMContentLoaded', function() {
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    let isMenuOpen = false;
-
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', () => {
-            if (!isMenuOpen) {
-                navLinks.classList.add('show');
-                menuBtn.innerHTML = '<i class="fas fa-times"></i>';
-            } else {
-                navLinks.classList.remove('show');
-                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-            isMenuOpen = !isMenuOpen;
-        });
-
-        // Menü öğelerine tıklandığında menüyü kapat
-        navLinks.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('show');
-                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                isMenuOpen = false;
-            });
-        });
-    }
-});
-
-// Ekran boyutu değiştiğinde navbar'ı kontrol et
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        navbar.classList.remove('navbar-hidden');
-        isScrollingDown = false;
-    }
-});
-
-// Yeni fonksiyonlar veya özellikler eklemek için
-function newFeature() {
-    // kod
+    setInterval(() => {
+        if (showingFirst) {
+            firstText.classList.remove('active');
+            setTimeout(() => {
+                secondText.classList.add('active');
+            }, 800);
+        } else {
+            secondText.classList.remove('active');
+            setTimeout(() => {
+                firstText.classList.add('active');
+            }, 800);
+        }
+        showingFirst = !showingFirst;
+    }, 4000);
 }
 
-// E-posta gönderme fonksiyonu
-async function sendEmail(event) {
-    event.preventDefault();
+// Scroll indikatörü tıklama
+document.querySelector('.scroll-indicator').addEventListener('click', () => {
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+});
+
+// Sayfa yüklendiğinde animasyonu başlat
+window.addEventListener('load', setupTextAnimation);
+
+// Form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    const submitBtn = document.querySelector('.submit-btn');
-    const notification = document.querySelector('.form-notification');
-    const form = document.getElementById('contactForm');
-    
+    const submitBtn = this.querySelector('.submit-btn');
     submitBtn.classList.add('loading');
     
-    try {
-        const result = await emailjs.sendForm(
-            'service_lneobpr',
-            'template_t524drk',
-            form,
-            'XVYDzcINnL1OdA2h-'
-        );
-        
-        if(result.status === 200) {
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 5000);
-            form.reset();
-        }
-        
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
-    } finally {
+    // Simulate form submission (replace with actual form submission)
+    setTimeout(() => {
         submitBtn.classList.remove('loading');
-    }
-}
+        submitBtn.classList.add('success');
+        
+        // Show success message
+        const successMessage = document.querySelector('.success-message');
+        successMessage.style.display = 'flex';
+        
+        // Reset form
+        this.reset();
+        
+        // Remove success class after animation
+        setTimeout(() => {
+            submitBtn.classList.remove('success');
+            // Success message will automatically slide out due to CSS animation
+        }, 5000);
+    }, 1500);
+});
 
-// Input validation için event listener'lar
-document.querySelectorAll('.input-group input, .input-group textarea').forEach(input => {
-    input.addEventListener('input', function() {
-        if (this.value.trim() !== '') {
-            this.classList.add('has-value');
-        } else {
-            this.classList.remove('has-value');
-        }
+// Custom Cursor
+const cursor = document.querySelector('.custom-cursor');
+const cursorDot = document.querySelector('.cursor-dot');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top = e.clientY + 'px';
+});
+
+// Hover efekti
+const hoverElements = document.querySelectorAll('a, button, input, textarea, .nav-toggle');
+
+hoverElements.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+    });
+    
+    element.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
     });
 });
+
+// Tıklama efekti
+document.addEventListener('mousedown', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    cursorDot.style.transform = 'translate(-50%, -50%) scale(0.5)';
+});
+
+document.addEventListener('mouseup', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+});
+
+// Smooth Scroll ve Fade-in Animasyonları
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-menu a');
+
+// Smooth scroll için
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        // Önce mevcut section'ı fade-out yap
+        sections.forEach(section => {
+            if (section.classList.contains('fade-in-section')) {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+            }
+        });
+
+        // Delay ile scroll ve fade-in
+        setTimeout(() => {
+            targetSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Scroll tamamlandıktan sonra yeni section'ı göster
+            setTimeout(() => {
+                targetSection.style.opacity = '1';
+                targetSection.style.transform = 'translateY(0)';
+                
+                // İçerik elementlerini kademeli göster
+                const elements = targetSection.querySelectorAll('.animate-element');
+                elements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('fade-in-element');
+                    }, 100 * (index + 1));
+                });
+            }, 400);
+        }, 150);
+    });
+});
+
+// Intersection Observer ile fade-in animasyonu
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+};
+
+const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            // Section görünümden çıktığında
+            entry.target.style.opacity = '0';
+            entry.target.style.transform = 'translateY(50px)';
+            
+            // İçerik elementlerini sıfırla
+            const elements = entry.target.querySelectorAll('.animate-element');
+            elements.forEach(element => {
+                element.classList.remove('fade-in-element');
+            });
+            return;
+        }
+
+        // Delay ile section'ı göster
+        setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            
+            // İçerik elementlerini kademeli göster
+            const elements = entry.target.querySelectorAll('.animate-element');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('fade-in-element');
+                }, 100 * (index + 1));
+            });
+        }, 150);
+    });
+}, observerOptions);
+
+// Sayfa yüklendiğinde
+sections.forEach(section => {
+    section.classList.add('section-hidden');
+    section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+    sectionObserver.observe(section);
+    
+    // Animasyon alacak elementleri işaretle
+    const animateElements = section.querySelectorAll(
+        'h2, h3, p, .skill-card, .service-card, .timeline-item, ' +
+        '.experience-item, .work-item, .social-link, .contact-form, ' +
+        '.info-card, .contact-item, .contact-note'
+    );
+    
+    animateElements.forEach(element => {
+        element.classList.add('animate-element');
+    });
+});
+
+// Email gönderme fonksiyonu
+function sendEmail(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.querySelector('.submit-btn');
+    submitBtn.classList.add('loading');
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+
+    // EmailJS konfigürasyonu - template parametrelerini güncelle
+    const templateParams = {
+        to_name: "Mert",
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+    };
+
+    emailjs.send('service_lneobpr', 'template_t524drk', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            submitBtn.classList.remove('loading');
+            submitBtn.classList.add('success');
+            
+            // Success message göster
+            const successMessage = document.querySelector('.success-message');
+            successMessage.style.display = 'flex';
+            
+            // Formu temizle
+            document.getElementById('contactForm').reset();
+            
+            // Success class'ı kaldır
+            setTimeout(() => {
+                submitBtn.classList.remove('success');
+            }, 5000);
+        }, function(error) {
+            console.log('FAILED...', error);
+            submitBtn.classList.remove('loading');
+            alert('Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+        });
+} 
