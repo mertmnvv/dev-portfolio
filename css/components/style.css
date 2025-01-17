@@ -419,17 +419,21 @@ body {
     }
 
     .skill-card {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .card-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 1.8rem;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-icon i {
+        font-size: 1.5rem;
     }
 
     .skill-card h3 {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
 }
 
