@@ -3,484 +3,1091 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="content-language" content="tr">
-    <meta name="language" content="Turkish">
-    <meta name="description" content="Mert Manav - Full Stack Developer Portfolio">
-    <meta name="keywords" content="full stack developer, web geliştirici, yazılım geliştirici, portfolio">
-    <meta name="author" content="Mert Manav">
-    <meta property="og:title" content="Mert Manav | Full Stack Developer">
-    <meta property="og:description" content="Full Stack Developer Portfolio">
-    <meta property="og:url" content="https://mertmanav.com.tr">
-    <title>Mert Manav | Full Stack Developer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://mertmanav.com.tr" />
+    <title>Mert - Portfolio</title>
+    <link rel="stylesheet" href="css/components/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init("XVYDzcINnL1OdA2h-"); // Yeni Public Key
+            emailjs.init("XVYDzcINnL1OdA2h-");
         })();
     </script>
+    <style>
+        :root {
+            --accent-color-rgb: 9, 132, 227; /* Bu değer --accent-color ile aynı rengin RGB karşılığı olmalı */
+        }
+        /* İletişim bölümü için mobil düzenlemeler */
+        @media (max-width: 768px) {
+            .contact .contact-content {
+                padding: 20px;
+            }
+            
+            .contact .icons {
+                margin: 10px 0;
+            }
+            
+            .contact .row {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+            .contact .row i {
+                font-size: 20px;
+                color: #333;
+                margin-right: 15px;
+            }
+            
+            .contact .info {
+                margin-left: 10px;
+            }
+            
+            .contact .info .head {
+                font-weight: 600;
+                font-size: 16px;
+            }
+            
+            .contact .info .sub-title {
+                font-size: 14px;
+                color: #666;
+            }
+
+            /* Yeni eklenecek stiller */
+            .contact-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact-form {
+                width: 100%;
+                padding: 0;
+            }
+
+            .contact-form form {
+                width: 100%;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .contact-info {
+                width: 100%;
+            }
+
+            /* Linklerim bölümü için mobil düzenlemeler */
+            .social-links {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 15px;
+            }
+
+            .social-link {
+                width: 100%;
+                padding: 15px;
+                margin: 0;
+            }
+
+            .social-icon {
+                min-width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .social-info {
+                padding-left: 15px;
+            }
+
+            .social-info h3 {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .social-info p {
+                font-size: 14px;
+            }
+
+            .links-intro {
+                padding: 0 20px;
+                margin-bottom: 30px;
+            }
+
+            /* Anasayfa bölümü için mobil düzenlemeler */
+            .home-section {
+                padding: 100px 20px;
+                text-align: center;
+            }
+
+            .text-animation {
+                margin-bottom: 40px;
+            }
+
+            .text-animation .text {
+                font-size: 24px;
+                line-height: 1.4;
+            }
+
+            .text-animation .first {
+                margin-bottom: 10px;
+            }
+
+            .text-animation .second {
+                font-size: 20px;
+            }
+
+            .scroll-indicator {
+                bottom: 40px;
+            }
+
+            .scroll-indicator .mouse {
+                width: 25px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+
+            .scroll-indicator span {
+                font-size: 14px;
+            }
+
+            /* Hakkımda bölümü için mobil düzenlemeler */
+            .about-section {
+                padding: 60px 20px;
+            }
+
+            .about-content {
+                max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .about-text {
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+            .about-text p {
+                font-size: 15px;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+
+            .skills-cards {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 0;
+            }
+
+            .skill-card {
+                padding: 15px;
+                min-height: auto;
+            }
+
+            .card-icon {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .skill-card h3 {
+                font-size: 16px;
+            }
+
+            /* Hizmetlerim bölümü için mobil düzenlemeler */
+            .services-section {
+                padding: 60px 20px;
+            }
+
+            .services-content {
+                max-width: 100%;
+            }
+
+            .section-subtitle {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .services-intro {
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+            .services-intro p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0;
+            }
+
+            .service-card {
+                padding: 20px;
+                margin: 0;
+            }
+
+            .service-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .service-card h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .service-card p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            /* Yetenekler bölümü için mobil düzenlemeler */
+            .skills-section {
+                padding: 60px 20px;
+            }
+
+            .skills-content {
+                max-width: 100%;
+            }
+
+            .skills-intro {
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+            .skills-intro p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .skills-bars {
+                padding: 0;
+            }
+
+            .skill-item {
+                margin-bottom: 25px;
+            }
+
+            .skill-info {
+                margin-bottom: 8px;
+            }
+
+            .skill-name {
+                font-size: 15px;
+            }
+
+            .skill-percentage {
+                font-size: 14px;
+            }
+
+            .skill-bar {
+                height: 8px;
+                border-radius: 4px;
+            }
+
+            .skill-progress {
+                border-radius: 4px;
+            }
+
+            /* Eğitim bölümü için mobil düzenlemeler */
+            .education-section {
+                padding: 60px 20px;
+            }
+
+            .education-content {
+                max-width: 100%;
+            }
+
+            .timeline {
+                padding: 20px 0;
+            }
+
+            .timeline-item {
+                padding-left: 30px;
+                margin-bottom: 30px;
+            }
+
+            .timeline-dot {
+                left: 0;
+                width: 15px;
+                height: 15px;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .timeline-date {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .timeline-content h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .timeline-degree {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .timeline-info {
+                font-size: 13px;
+                color: #666;
+            }
+
+            /* Timeline çizgisi için düzenleme */
+            .timeline-item::before {
+                left: 7px;
+                width: 2px;
+            }
+
+            /* Tecrübelerim bölümü için mobil düzenlemeler */
+            .experience-section {
+                padding: 60px 20px;
+            }
+
+            .experience-content {
+                max-width: 100%;
+            }
+
+            .experience-timeline {
+                padding: 0;
+            }
+
+            .experience-item {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            .experience-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                margin-right: 15px;
+            }
+
+            .experience-details {
+                flex: 1;
+            }
+
+            .experience-tag {
+                font-size: 12px;
+                padding: 4px 12px;
+                margin-bottom: 10px;
+            }
+
+            .experience-details h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .experience-details p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .experience-note {
+                padding: 15px;
+                margin-top: 30px;
+            }
+
+            .note-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+                margin-right: 12px;
+            }
+
+            .experience-note p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            /* İş Hayatı bölümü için mobil düzenlemeler */
+            .work-section {
+                padding: 60px 20px;
+            }
+
+            .work-content {
+                max-width: 100%;
+            }
+
+            .work-timeline {
+                padding: 0;
+            }
+
+            .work-item {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            .work-icon-group {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 15px;
+                gap: 15px;
+            }
+
+            .work-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin: 0;
+            }
+
+            .work-details {
+                flex: 1;
+            }
+
+            .work-tag {
+                font-size: 12px;
+                padding: 4px 12px;
+                margin-bottom: 10px;
+            }
+
+            .work-details h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .work-details p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .work-note {
+                padding: 15px;
+                margin-top: 30px;
+            }
+
+            .note-icon {
+                display: flex;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin: 0 auto 15px auto;
+            }
+
+            .note-content h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .note-content p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            /* İkonların mobil düzenlemesi */
+            .work-icon-group {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 15px;
+                gap: 15px;
+            }
+
+            .work-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin: 0;
+            }
+
+            .experience-icon {
+                display: flex;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin: 0 auto 15px auto;
+            }
+
+            .service-icon {
+                display: flex;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin: 0 auto 15px auto;
+            }
+
+            .card-icon {
+                display: flex;
+                justify-content: center;
+                font-size: 24px;
+                margin: 0 auto 15px auto;
+            }
+
+            /* İkon içeren kartların düzenlemesi */
+            .work-item,
+            .experience-item,
+            .service-card,
+            .skill-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .work-details,
+            .experience-details {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Not ikonlarının düzenlemesi */
+            .note-icon {
+                display: flex;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin: 0 auto 15px auto;
+            }
+
+            .work-note,
+            .experience-note {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">
-                <a href="#home">
-                    <span>MM</span>
-                </a>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li>
-                    <a href="#home" class="nav-link">
-                        <i class="fas fa-home"></i>
-                        <span>Ana Sayfa</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#about-goals" class="nav-link">
-                        <i class="fas fa-user"></i>
-                        <span>Hakkımda</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#experience" class="nav-link">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Deneyimler</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#education" class="nav-link">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Eğitim</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#skills" class="nav-link">
-                        <i class="fas fa-code"></i>
-                        <span>Yetenekler</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#contact" class="nav-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>İletişim</span>
-                    </a>
-                </li>
+    <!-- Particles.js için script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.js"></script>
+
+    <!-- Body tag'inin hemen altına particles container ekleyelim -->
+    <div id="particles-cursor"></div>
+
+    <!-- Body tag'inin hemen altına ekleyin -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Yuvarlak Navbar -->
+    <div class="circular-nav">
+        <button class="nav-toggle">
+            <span>MM</span>
+        </button>
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home" class="active">Anasayfa</a></li>
+                <li><a href="#about">Hakkımda</a></li>
+                <li><a href="#services">Hizmetlerim</a></li>
+                <li><a href="#skills">Yetenekler</a></li>
+                <li><a href="#education">Eğitim</a></li>
+                <li><a href="#experience">Tecrübelerim</a></li>
+                <li><a href="#work">İş Hayatı</a></li>
+                <li><a href="#links">Linklerim</a></li>
+                <li><a href="#contact">İletişim</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>MERT MANAV</h1>
-                <p class="title">Full Stack Developer</p>
-                <div class="social-links">
-                    <a href="https://github.com/mertmnvv" target="_blank" class="social-link" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mert-manav-655a56335/" target="_blank" class="social-link" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/mertmnvv" target="_blank" class="social-link" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@mertmnv1702" target="_blank" class="social-link" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-                <div class="workplace-link">
-                    <a href="https://cafeblanco.com.tr/" target="_blank" title="Blanco Coffee & More">
-                        <i class="fas fa-coffee"></i>
-                        <span>Blanco Coffee & More</span>
-                    </a>
-                </div>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Ana İçerik -->
+    <main class="main-content">
+        <section id="home" class="home-section">
+            <div class="text-animation">
+                <div class="text first">Merhaba, ben Mert</div>
+                <div class="text second">Yazılım Uzmanıyım</div>
             </div>
-        </div>
-    </section>
-
-    <section id="about-goals" class="section">
-        <div class="container">
-            <h2>Hakkımda & Hedefler</h2>
-            <div class="about-goals-container">
-                <!-- Hakkımda Kartı -->
-                <div class="about-card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <div class="front-content">
-                                <div class="icon-circle">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <h3>Hakkımda</h3>
-                                <p class="preview-text">Profesyonel Deneyimlerim</p>
-                            </div>
-                        </div>
-                        <div class="card-back">
-                            <div class="back-content">
-                                <div class="about-info">
-                                    <p>Dört yıldır sektörde profesyonel barista olarak çalışıyorum. Bu süre zarfında yüksek müşteri memnuniyetini korudum ve kahve ve içecek hazırlama konusunda uzmanlaştım. Aynı zamanda, yazılım alanında kendimi geliştirmek için çeşitli kurslara katıldım.</p>
-                                    <p>Yedi yıldır farklı sektörlerde çeşitli rollerde çalıştım ve kurumsal firmalarda görev aldım. Bu süreçte edindiğim deneyimlerle disiplin ve problem çözme becerilerimi geliştirdim. Kariyerimi yazılım alanında ilerleterek yenilikçi projelerde yer alıp sektörde fark yaratmayı hedefliyorum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hedefler Kartı yerine Amaçlarım Kartı -->
-                <div class="about-card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <div class="front-content">
-                                <div class="icon-circle">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h3>Amaçlarım</h3>
-                                <p class="preview-text">Yazılım Yolculuğum</p>
-                            </div>
-                        </div>
-                        <div class="card-back">
-                            <div class="back-content">
-                                <div class="about-text">
-                                    <p>C# ve .NET Core konularında deneyim kazanıyor ve eğitim alıyorum. Bu süreçte kendimi sürekli geliştirmeye devam ediyorum. Aynı zamanda robotik kodlama ve web tasarımıyla da ilgileniyorum.</p>
-                                    
-                                    <p>Yazılım sektöründe ileri düzeylere ulaşmayı ve hayalini kurduğum pozisyonlara erişmeyi hedefliyorum. Full stack developer olarak çalışarak, oyun, uygulama, web geliştirme ve robotik kodlama alanlarında profesyonel bir kariyer inşa etmek istiyorum.</p>
-                                    
-                                    <p>Bu alanlarda derin bilgi birikimine sahip olup yenilikçi projeler geliştirmeyi ve sektördeki en iyi uzmanlardan biri olmayı amaçlıyorum. Teknolojik gelişmeleri yakından takip ederek sürekli öğrenmeyi ve kendimi geliştirmeyi hedefliyorum.</p>
-                                    
-                                    <p>Yenilikçi çözümler üreterek, hem bireysel olarak hem de ekip çalışmalarıyla projelere değer katmak istiyorum. Uzun vadede, bilgi ve deneyimlerimi paylaşabileceğim, genç yazılımcılara ilham verebileceğim ve alanımda lider konumda olabileceğim bir noktaya ulaşmayı amaçlıyorum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <span>Aşağı Kaydır</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience" class="section">
-        <div class="container">
-            <h2>Deneyimler</h2>
-            <div class="experience-container">
-                <div class="timeline">
-                    <!-- Blanco Coffee -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2024 - Devam Ediyor</div>
-                        <div class="timeline-content">
-                            <h3>Blanco Coffee & More</h3>
-                            <h4>Yönetici</h4>
-                            <p>Yönetici olarak çalışarak, ekip yönetimi ve operasyon süreçlerini yönetmekteyim. Müşteri memnuniyetini artırmak için stratejiler geliştirerek satış hedeflerine ulaşmada başarılı sonuçlar elde etmekteyim.</p>
-                        </div>
-                    </div>
-
-                    <!-- Coffy -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2023-2024</div>
-                        <div class="timeline-content">
-                            <h3>Coffy</h3>
-                            <h4>Barista</h4>
-                            <p>Barista olarak çalışarak, sıcak ve soğuk içeceklerin hazırlanması konusunda uzmanlık kazandım. Müşteri hizmetleri ve operasyonel süreçlerde aktif rol alarak, müşteri memnuniyetini en üst düzeyde tuttum.</p>
-                        </div>
-                    </div>
-
-                    <!-- Caffè Nero -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2022-2024</div>
-                        <div class="timeline-content">
-                            <h3>Caffè Nero</h3>
-                            <h4>Vardiya Müdürü</h4>
-                            <p>• Vardiya operasyonlarını ve ekip yönetimini başarıyla yürüttüm<br>
-                            • Günlük satış hedeflerini belirleyip takibini gerçekleştirdim<br>
-                            • Müşteri memnuniyetini en üst düzeyde tutarak şikayetleri çözümledim<br>
-                            • Personel eğitimi ve motivasyonunu sağladım<br>
-                            • Stok ve maliyet kontrolü yaptım</p>
-                        </div>
-                    </div>
-
-                    <!-- KODGE Software -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2020</div>
-                        <div class="timeline-content">
-                            <h3>KODEG YAZILIM</h3>
-                            <h4>SQL Developer Stajyer</h4>
-                            <p>• Veritabanı yönetimi ve optimizasyonu konularında deneyim kazandım<br>
-                            • SQL sorgularının performans iyileştirmelerini gerçekleştirdim<br>
-                            • Stored Procedure ve Function geliştirme süreçlerinde yer aldım<br>
-                            • Veri analizi ve raporlama çalışmaları yaptım<br>
-                            • Ekip çalışması ile projelerde aktif rol aldım</p>
-                        </div>
-                    </div>
-
-                    <!-- Holiday Inn -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2019</div>
-                        <div class="timeline-content">
-                            <h3>Holiday Inn Kadıköy</h3>
-                            <h4>Teknik Destek Stajyeri</h4>
-                            <p>• Otel misafirlerinin teknik sorunlarına hızlı çözümler ürettim<br>
-                            • Bilgisayar donanım ve yazılım sorunlarını giderdim<br>
-                            • Network sorunlarını çözdüm ve sistem bakımlarını gerçekleştirdim<br>
-                            • Misafir odalarındaki teknik ekipmanların kontrolünü sağladım<br>
-                            • Otel personeline teknik destek verdim</p>
-                        </div>
-                    </div>
-
-                    <!-- Ozan Asansör -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2018</div>
-                        <div class="timeline-content">
-                            <h3>Ozan Asansör</h3>
-                            <h4>Operatör Stajyeri</h4>
-                            <p>• Asansör bakım ve onarım süreçlerinde aktif görev aldım<br>
-                            • Teknik ekiple birlikte arıza tespiti ve çözümü konularında çalıştım<br>
-                            • Periyodik bakım planlamalarına katıldım<br>
-                            • Güvenlik kontrollerini gerçekleştirdim<br>
-                            • Teknik dokümantasyon ve raporlama yaptım</p>
-                        </div>
-                    </div>
-
-                    <!-- Diğer deneyimler aynı formatta devam edecek -->
+        <!-- Hakkımda Section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">Hakkımda</h2>
+                <div class="about-text">
+                    <p>Merhaba, ben Mert Manav!</p>
+                    <p>Küçüklüğümden beri yazılıma ilgi duyuyorum ve bu alanda kendimi her geçen gün geliştiriyorum. Bilgisayar Programcılığı mezunuyum ve yazılım benim için sadece bir meslek değil, aynı zamanda en büyük tutkum!</p>
+                    <p>Burası, beni daha yakından tanıyabileceğiniz küçük ama keyifli bir alan. Aşağı kaydırmaya devam ederek hikâyemi keşfedebilir, yazılım yolculuğuma ortak olabilir ve belki de ortak ilgi alanlarımızı fark edebilirsiniz.</p>
+                    <p>Keyifli keşifler dilerim!</p>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="education" class="section">
-        <div class="container">
-            <h2>Eğitim</h2>
-            <div class="education-cards">
-                <div class="edu-card">
-                    <i class="fas fa-university"></i>
-                    <h3>Atatürk Üniversitesi</h3>
-                    <p>Reklamcılık</p>
-                    <span>2020 - Devam Ediyor</span>
-                </div>
-                <div class="edu-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Yalova Üniversitesi</h3>
-                    <p>Bilgisayar Programcılığı</p>
-                    <span>2020 - 2022</span>
-                </div>
-                <div class="edu-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>SmartPro Akademi</h3>
-                    <p>Yazılım Uzmanlığı Eğitimi</p>
-                    <span>2024 - 2025</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="section">
-        <div class="container">
-            <h2>Yetenekler</h2>
-            <div class="skills-container">
-                <div class="skill-category">
+                <div class="skills-cards">
                     <div class="skill-card">
-                        <div class="skill-card-inner">
-                            <div class="skill-icon">
+                        <div class="card-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Web Design</h3>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Software</h3>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Application</h3>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Game</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hizmetlerim Section -->
+        <section id="services" class="services-section">
+            <div class="services-content">
+                <h3 class="section-title">Neler Yapabilirim?</h3>
+                <h2 class="section-subtitle">Hizmetlerimden Bazıları</h2>
+                <div class="services-intro">
+                    <p>Yetkinliklerim ve uzmanlık alanlarım sayesinde, teknoloji odaklı çözümler sunuyorum. İşte hizmetlerimden bazıları:</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Problem Solving</h3>
+                        <p>Karşılaşılan yazılım ve donanım problemlerine yenilikçi ve verimli çözümler üretiyorum. Analitik düşünme yeteneğim sayesinde hızlı ve etkili problem çözme süreçleri geliştiriyorum.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Software Development</h3>
+                        <p>İhtiyaçlarınıza uygun, ölçeklenebilir ve güvenilir yazılım çözümleri geliştiriyorum. Modern programlama dilleri ve teknolojileri kullanarak kaliteli yazılımlar sunuyorum.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Application Development</h3>
+                        <p>Mobil ve masaüstü uygulamaları geliştirerek iş süreçlerinizi dijital dünyaya taşıyorum. Kullanıcı dostu ve performans odaklı uygulamalar üretiyorum.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Arduino Programming</h3>
+                        <p>Arduino ile donanım tabanlı projeler geliştiriyorum. Sensörler, motorlar ve diğer elektronik bileşenleri programlayarak akıllı sistemler tasarlıyorum.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Web Design</h3>
+                        <p>Şık, modern ve işlevsel web siteleri tasarlıyorum. UX/UI prensiplerine uygun web çözümleri sunarak kullanıcı deneyimini ön planda tutuyorum.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Game Development</h3>
+                        <p>Unity kullanarak oyun projeleri geliştiriyorum. 2D/3D oyun tasarımı, oyun mekaniği ve kullanıcı deneyimi odaklı çalışmalar yapıyorum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yetenekler Section -->
+        <section id="skills" class="skills-section">
+            <div class="skills-content">
+                <h3 class="section-title">Uzmanlıklarım</h3>
+                <h2 class="section-subtitle">Yeteneklerim</h2>
+                <div class="skills-intro">
+                    <p>İşte benim yeteneklerimden bazıları. Bu alana bakarak benim hakkımda artık daha çok düşünceye sahipsiniz. Bu yetenekler her geçen gün gelişmeye ve yüzdelik oranları yükselmeye devam edecek, bu sürece umarım bu sayfaya giren herkes şahit olur.</p>
+                </div>
+
+                <div class="skills-bars">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML5</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; background: #60A5FA;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">CSS3</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; background: #3B82F6;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">C#</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%; background: #2563EB;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%; background: #1D4ED8;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 40%; background: #1E40AF;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">35%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 35%; background: #0F2C67;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eğitim Section -->
+        <section id="education" class="education-section">
+            <div class="education-content">
+                <h3 class="section-title">Eğitim Geçmişim</h3>
+                <h2 class="section-subtitle">Akademik Yolculuğum</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022 - Devam Ediyor</div>
+                            <h3>Atatürk Üniversitesi</h3>
+                            <p class="timeline-degree">Reklam</p>
+                            <p class="timeline-info">Açıköğretim Fakültesi</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020 - 2022</div>
+                            <h3>Yalova Üniversitesi</h3>
+                            <p class="timeline-degree">Bilgisayar Programcılığı</p>
+                            <p class="timeline-info">Yalova Meslek Yüksekokulu</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2015 - 2019</div>
+                            <h3>Haydarpaşa Mesleki ve Teknik Anadolu Lisesi</h3>
+                            <p class="timeline-degree">Elektrik Elektronik</p>
+                            <p class="timeline-info">Teknik Lise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecrübelerim Section -->
+        <section id="experience" class="experience-section">
+            <div class="experience-content">
+                <h3 class="section-title">Neler Yaptım?</h3>
+                <h2 class="section-subtitle">Tecrübelerim</h2>
+
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="experience-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="experience-details">
+                            <span class="experience-tag">Aktif Proje</span>
+                            <h3>Web Geliştirme</h3>
+                            <p>Şu an incelediğiniz bu web sitesini kendim tasarladım ve geliştirdim. Web teknolojileri konusunda yetkinim ve sürekli kendimi geliştiriyorum.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="experience-details">
+                            <span class="experience-tag">Web Sitesi- Teslim Edildi</span>
+                            <h3>Blanco Coffee & More Web Sitesi</h3>
+                            <p>Yaptığım bu business web sitesinin teslimatını paylaşmanın heyecanını yaşıyorum! 💡✨ Bu siteyi sevgiyle ve özenle tasarladım, umarım beğenirsiniz! 💻❤️ Siteyi incelemek ve düşüncelerinizi benimle paylaşmak için <a href="https://cafeblanco.com.tr/" target="_blank" style="color: var(--accent-color);">ziyaret edebilirsiniz</a>. Geri dönüşleriniz için aşağı kaydırmanız yeterli! <i class="fas fa-arrow-down" style="margin-left: 5px;"></i></p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="experience-details">
+                            <span class="experience-tag">Devam Eden</span>
+                            <h3>MVC E-Ticaret Projesi</h3>
+                            <p>ASP.NET Core MVC kullanarak gelişmiş bir e-ticaret sitesi üzerinde çalışıyorum. Bu projede kullanıcı yönetimi, ödeme entegrasyonu ve dinamik içerik yönetimi gibi modern özellikler bulunuyor.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="experience-details">
+                            <span class="experience-tag">Teknofest 2025 - Devam Eden</span>
+                            <h3>Teknofest & IRON MONK</h3>
+                            <p>Teknofest için IRON MONK adını verdiğimiz bir robot ve yapay zeka projeleri üzerinde çalışıyoruz. Bu projeler, yapay zeka destekli karar mekanizmaları ve otonom hareket yetenekleriyle dikkat çekici olacaklar! 🚀</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="experience-details">
+                            <span class="experience-tag">Arduino Projesi - Devam Eden</span>
+                            <h3>Su Altı Kamera Kontrol Sistemi</h3>
+                            <p>Arduino kullanarak hassas su altı kamera kontrol motoru geliştiriyorum. Bu sistem, servo motorlar ve sensörler aracılığıyla su altında hassas kamera hareketleri sağlıyor. Proje kapsamında motor kontrolü, su geçirmezlik ve hassas hareket algoritmaları üzerinde çalışıyorum. 🌊🎥</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-note">
+                    <div class="note-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <p>Şimdilik buralar biraz boş olabilir, ama ilerleyen zamanlarda projelerim ve deneyimlerim hızla artacak. İzlemede kalın! 🚀</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- İş Hayatı Section -->
+        <section id="work" class="work-section">
+            <div class="work-content">
+                <h3 class="section-title">Kariyerim</h3>
+                <h2 class="section-subtitle">İş Hayatım</h2>
+
+                <div class="work-timeline">
+                    <div class="work-item">
+                        <div class="work-icon-group">
+                            <div class="work-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div class="work-icon">
                                 <i class="fas fa-code"></i>
                             </div>
-                            <h3>Programlama Dilleri</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span class="skill-name">C#</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">JavaScript</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">SQL</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="work-details">
+                            <span class="work-tag">Şu an aktif</span>
+                            <h3>Barista & Yazılımcı</h3>
+                            <p>Kahve yaparım, kod yazarım. Günüm espresso makineleri ve satırlarca kod arasında geçiyor. Şimdilik bu ikisiyle ilerliyorum ama gelecekte çok daha fazlası olacak!</p>
+                        </div>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="work-details">
+                            <span class="work-tag">Staj Deneyimi</span>
+                            <h3>SQL Developer Stajı</h3>
+                            <p>1 aylık bir SQL Developer staj deneyimim var. Veritabanı yönetimi, sorgu optimizasyonu ve veri analizi konularında temel deneyim kazandım.</p>
+                        </div>
+                    </div>
+
+                    <div class="work-note">
+                        <div class="note-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="note-content">
+                            <h3>Kendimi Geliştirmeyi Seviyorum</h3>
+                            <p>Şu an çok dolu bir iş geçmişim olmayabilir, ancak her gün öğrenmeye ve gelişmeye devam ediyorum. Gelecekte burası projeler ve deneyimlerle dolup taşacak! Takipte kalın. 😎</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="skill-category">
-                    <div class="skill-card">
-                        <div class="skill-card-inner">
-                            <div class="skill-icon">
+        <!-- Linklerim Section -->
+        <section id="links" class="links-section">
+            <div class="links-content">
+                <h3 class="section-title">Sosyal Medya</h3>
+                <h2 class="section-subtitle">Linklerim</h2>
+                
+                <div class="links-intro">
+                    <p>Bana buradan da ulaşabilirsiniz. Sosyal medya hesaplarımı takip ederek güncel projelerimi ve paylaşımlarımı görebilirsiniz! 🚀</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mertmnvv/" target="_blank" class="social-link">
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-info">
+                            <h3>Instagram</h3>
+                            <p>@mertmnvv</p>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/mertmnvv" target="_blank" class="social-link">
+                        <div class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="social-info">
+                            <h3>GitHub</h3>
+                            <p>@mertmnvv</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/mert-manav-655a56335/" target="_blank" class="social-link">
+                        <div class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="social-info">
+                            <h3>LinkedIn</h3>
+                            <p>Mert Manav</p>
+                        </div>
+                    </a>
+
+                    <a href="https://open.spotify.com/user/wawe-tr?si=b2daaf0b0edc4e03" target="_blank" class="social-link">
+                        <div class="social-icon">
+                            <i class="fab fa-spotify"></i>
+                        </div>
+                        <div class="social-info">
+                            <h3>Spotify</h3>
+                            <p>wawe-tr</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-content">
+                <h3 class="section-title">İletişim</h3>
+                <h2 class="section-subtitle">Bana Ulaşın</h2>
+
+                <div class="contact-intro">
+                    <p>Buraya yazdığınız her bir mesaj bana doğrudan gelecek. Size en kısa sürede dönüş yapmaya çalışacağım. Umarım güzel mesajlar atan insanlarla dolu olur burası! 😊</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <div class="info-icon">
                                 <i class="fas fa-laptop-code"></i>
                             </div>
-                            <h3>Web Teknolojileri</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span class="skill-name">HTML5</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">CSS3</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">.NET Core</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 70%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3>Yazılım Hikayem</h3>
+                            <p>Bu, her geçen gün gelişen ve ilerleyen bir hikaye. Yeni projeler, yeni deneyimler ve bolca öğrenme dolu bir yolculuk!</p>
                         </div>
-                    </div>
-                </div>
 
-                <div class="skill-category">
-                    <div class="skill-card">
-                        <div class="skill-card-inner">
-                            <div class="skill-icon">
-                                <i class="fas fa-microchip"></i>
-                            </div>
-                            <h3>Arduino & Robotik</h3>
-                            <div class="skill-items">
-                                <div class="skill-item">
-                                    <span class="skill-name">Arduino</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Robotik Kodlama</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 70%"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <span class="skill-name">Sensör Programlama</span>
-                                    <div class="skill-level">
-                                        <div class="skill-progress" style="width: 65%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>İletişim</h2>
-            <div class="contact-container">
-                <!-- Sol taraf - İletişim Bilgileri -->
-                <div class="contact-info-container">
-                    <div class="contact-card">
-                        <div class="contact-card-inner">
-                            <div class="contact-header">
-                                <i class="fas fa-paper-plane"></i>
-                                <h3>Bana Ulaşın</h3>
-                            </div>
-                            <div class="contact-details">
-                                <div class="contact-item">
-                                    <i class="fas fa-envelope-open"></i>
-                                    <a href="mailto:mertmnv3@gmail.com">mertmnv3@gmail.com</a>
-                                </div>
-                                <div class="contact-item">
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="item-icon">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span>İstanbul, Türkiye</span>
+                                </div>
+                                <div class="item-info">
+                                    <h4>Konum</h4>
+                                    <p>İstanbul</p>
                                 </div>
                             </div>
-                            <div class="social-contact">
-                                <a href="https://github.com/mertmnvv" target="_blank" class="social-icon">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://linkedin.com/in/mert-manav" target="_blank" class="social-icon">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://instagram.com/mertmnvv" target="_blank" class="social-icon">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                        </div>
+
+                        <div class="contact-note">
+                            <div class="note-icon">
+                                <i class="fas fa-code-branch"></i>
                             </div>
+                            <p>Yazılım yolculuğumda beni takip etmeyi unutma! Her gün yeni projeler, yeni teknolojiler ve yeni başarılar... 🚀✨</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Sağ taraf - İletişim Formu -->
-                <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form" onsubmit="sendEmail(event)">
-                        <div class="form-header">
-                            <div class="form-icon">
-                                <i class="fas fa-envelope-open-text"></i>
+                    <div class="contact-form">
+                        <form id="contactForm" onsubmit="sendEmail(event)">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Adınız" required>
                             </div>
-                            <h3>Mesaj Gönderin</h3>
-                            <p>Size en kısa sürede dönüş yapacağım.</p>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" id="name" name="from_name" required placeholder=" ">
-                                <label for="name">Ad Soyad</label>
-                                <i class="fas fa-user"></i>
-                                <div class="input-status">
-                                    <i class="fas fa-check"></i>
-                                </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="E-posta Adresiniz" required>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" id="email" name="reply_to" required placeholder=" ">
-                                <label for="email">E-posta</label>
-                                <i class="fas fa-envelope"></i>
-                                <div class="input-status">
-                                    <i class="fas fa-check"></i>
-                                </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder="Konu" required>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <textarea id="message" name="message" required placeholder=" "></textarea>
-                                <label for="message">Mesajınız</label>
-                                <i class="fas fa-comment-alt"></i>
-                                <div class="input-status">
-                                    <i class="fas fa-check"></i>
-                                </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Mesajınız" required></textarea>
                             </div>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <span>Gönder</span>
-                            <div class="btn-icon">
+                            <button type="submit" class="submit-btn">
+                                <span>Mesaj Gönder</span>
                                 <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <div class="btn-loading">
-                                <i class="fas fa-circle-notch fa-spin"></i>
-                            </div>
-                        </button>
-                    </form>
-                    <div class="form-notification">
-                        <div class="notification-content">
-                            <i class="fas fa-check-circle"></i>
-                            <h3>Mesajınız Gönderildi!</h3>
-                            <p>En kısa sürede size dönüş yapacağım.</p>
-                        </div>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Mert Manav. Tüm hakları saklıdır.</p>
+    <!-- Success Message -->
+    <div class="success-message" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <p>Mesajını aldım, geri dönücem hiç bekletmem! 😊</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Tüm Hakları Saklıdır</p>
+            <div class="footer-wave">
+                <i class="fas fa-code"></i>
+            </div>
         </div>
     </footer>
 
