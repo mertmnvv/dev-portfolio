@@ -1,0 +1,269 @@
+:root {
+    --bg-color: #f5f5f5;
+    --nav-bg: #ffffff;
+    --text-color: #333333;
+    --accent-color: #666666;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Yuvarlak Navbar */
+.circular-nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* MM Butonu */
+.nav-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--nav-bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px var(--shadow);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    position: relative;
+}
+
+.nav-toggle span {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.nav-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* Navbar Menü */
+.nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: var(--nav-bg);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px var(--shadow);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu ul li {
+    margin: 0.8rem 0;
+}
+
+.nav-menu ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+    background: var(--bg-color);
+    color: var(--accent-color);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ana İçerik */
+.main-content {
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* Ana Sayfa Stili */
+.home-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+}
+
+/* Metin Animasyonu */
+.text-animation {
+    text-align: center;
+    height: 160px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.text {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.first {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.second {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* Scroll İndikatör */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--text-color);
+    border-radius: 20px;
+    position: relative;
+}
+
+.mouse::before {
+    content: '';
+    width: 4px;
+    height: 8px;
+    background: var(--text-color);
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 20px;
+        right: 20px;
+        min-width: auto;
+        text-align: center;
+    }
+
+    .nav-toggle {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-toggle span {
+        font-size: 14px;
+    }
+
+    .first {
+        font-size: 2.5rem;
+    }
+
+    .second {
+        font-size: 2rem;
+    }
+
+    .text-animation {
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .first {
+        font-size: 2rem;
+    }
+
+    .second {
+        font-size: 1.6rem;
+    }
+
+    .text-animation {
+        height: 100px;
+    }
+
+    .scroll-indicator {
+        bottom: 1rem;
+    }
+} 
