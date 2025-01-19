@@ -1,0 +1,8 @@
+# Diğer klasörleri yoksay
+../*
+../../*
+../../../*
+
+# Sistem dosyalarını yoksay
+.DS_Store
+desktop.ini 
